@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 2.3</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="styles.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">
+            <a href="index.html" class="btn btn-default pull-right">&laquo; Back</a>
+            Homework <small>2.3</small>
+        </h1>
+
+        <h3>Loops</h3>
+        <ol>
+            <li>
+                <p>
+                    What will be the value of <var>x</var> when this loop exits?
+                </p>
+                <pre class="prettyprint lang-cs">
+var x = 20;
+do
+{
+    x -= 3;
+} while (x > 0);
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>-3</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>-2</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>0</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><samp>-1</samp>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    True/false: The body of this <code>while</code> loop will always execute.
+                </p>
+                <pre class="prettyprint lang-cs">
+Console.WriteLine("What is your name?");
+var name = Console.ReadLine();
+while (string.IsNullOrWhitespace(name)) 
+{
+    Console.WriteLine("You didn't enter anything. Please enter your name.");
+    name = Console.ReadLine();
+}
+Console.WriteLine("Welcome, " + name + "!");
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>True</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><samp>False</samp>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    What will be the final value of <var>result</var>?
+                </p>
+                <pre class="prettyprint lang-cs">
+var a = "Banana";
+var b = "Cherry";
+var result = "";
+for (var x = 6; x > 0; x -= 2)
+{
+    if (x > 3)
+    {
+        result += a;
+    } 
+    else
+    {
+        result += b;
+    }
+    result += " "; // add a space
+}
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>Banana Cherry Banana Cherry</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>Banana Banana Banana</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>Banana Banana Cherry Cherry</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><samp>Banana Banana Cherry</samp>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Types</h3>
+        <ol>
+            <li>
+                <p>
+                    Casting is when a variable has a type in parenthesis beside it. The compiler will attempt to coerce that variable to the given type in the parenthesis (e.g. <code>(int)myVar</code>).
+                    If the cast is valid, the type coercion will succeed. Otherwise either the compiler will throw an error, or the program will throw an error at runtime.
+                </p>
+                <p>
+                    What will be the type of <var>result</var>?
+                </p>
+                <pre class="prettyprint lang-cs">
+object foo = "Test"; // object can store any type
+var bar = foo; // "bar" is implicitly typed as object since foo is object
+var result = (string)bar; // here we're casting "bar" as a string
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>char</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>int</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><code>string</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>object</code>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    There are multiple kinds of number types. The familiar <code>int</code> is a 32-bit signed (+/-) integer. Another type is
+                    <code>float</code> which is a 32-bit floating-point value (e.g. <code>var myFloat = 3.14159f;</code>, "f" denotes to the
+                    compiler that this is a <code>float</code> value).
+                </p>
+                <p>
+                    What will be the type of <var>result</var>?
+                </p>
+                <pre class="prettyprint lang-cs">
+int x = 5;
+var quotient = 5 / (float)2;
+var result = (int)quotient;
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><code>int</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>double</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>float</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>object</code>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    What is the <strong>value</strong> of <var>result</var> from the above question?
+                </p>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><samp>2</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>2.5</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>0</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>5</samp>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    Variables of type <code>string</code> can also be considered an <code>Array</code> of <code>char</code> values (e.g. <code>char[] myString</code>).
+                </p>
+                <p>
+                    What is the value of <var>result</var>?
+                </p>
+                <pre class="prettyprint lang-cs">
+string foo = "Hello, world!";
+var result = foo[0];
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><code>null</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>e</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><samp>H</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>Hello, world!</samp>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    Use constants (<code>const</code>) in cases where you either know that a value will not change, or you do not want it to change.
+                </p>
+                <p>
+                    True/false: The following code will fail to compile.
+                </p>
+                <pre class="prettyprint lang-cs">
+const string server = "http://www.google.com";
+Console.WriteLine("Please visit " + server);
+server = "http://www.yahoo.com";
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><samp>True</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>False</samp>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Methods</h3>
+
+        <p>Given this method for the following questions:</p>
+        <pre class="prettyprint lang-cs">
+public static class Homework
+{
+    public static bool HitSucceeds(int proficiencyBonus, int modifier, int enemyArmorClass)
+    {
+        var rand = new Random();
+        var diceRoll = rand.Next(1, 20);
+        
+        if (diceRoll == 1)
+        {
+            // Critical miss
+            return false;
+        }
+        if (diceRoll == 20)
+        {
+            // Critical hit
+            return true;
+        }
+        // Apply modifiers to the dice roll
+        diceRoll += proficiencyBonus + modifier;
+        return diceRoll > enemyArmorClass;
+    }
+}
+</pre>
+
+        <ol>
+            <li>
+                <p>
+                    Given the below code and noting the values passed to the above method, which parameter of <code>Homework.HitSucceeds</code> in this scenario has the biggest impact on the difficulty to hit the monster?
+                </p>
+                <pre class="prettyprint lang-cs">
+var pb = 2;
+var m = 2;
+var result = Homework.HitSucceeds(pb, m, 15);
+if (result) // same as typing result == true
+{
+    Console.WriteLine("You hit the monster!");
+}
+else
+{
+    Console.WriteLine("You miss!");
+}
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>modifier</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><code>proficiencyBonus</code>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><code>enemyArmorClass</code>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    Which player has the best chance to defeat their monster first?
+                </p>
+                <pre class="prettyprint lang-cs">
+public class Monster
+{
+    public int Health { get; set; }
+    public int ArmorClass { get; set; }
+}
+public class Player
+{
+    public int Modifier { get; set; }
+    
+    public int ProficencyBonus { get; set; }
+}
+var monsters = new Monster[4];
+for (var x = 0; x < 4; x++)
+{
+    monsters[x] = new Monster { Health = 100; ArmorClass = 10 };
+}
+var players = new Player[]
+              {
+                new Player { Modifier = 2, ProficiencyBonus = 2 },
+                new Player { Modifier = 0, ProficiencyBonus = 4 },
+                new Player { Modifier = 4, ProficiencyBonus = 1 },
+                new Player { Modifier = 3, ProficiencyBonus = 1 }
+              };
+var winner = -1;
+while (winner == -1)
+{
+    for (var x = 0; x < 4; x++)
+    {
+        // Current player
+        var p = players[x];
+        // Current monster
+        var m = monsters[x];
+        if (Homework.HitSucceeds(p.ProficiencyBonus, p.Modifier, m.ArmorClass)) 
+        {
+            // Hit!
+            m.Health -= 10;
+            
+            if (m.Health &lt;= 0)
+            {
+                winner = x;
+                break;
+            }
+        }
+    }
+}
+Console.WriteLine("Player " + winner + " defeated their monster first!");
+</pre>
+                <ul class="list-group answers">
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>Player 0</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>Player 1</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="correct" /><samp>Player 2</samp>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" /><samp>Player 3</samp>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="panel panel-info" id="score">
+            <div class="panel-heading">
+                <h3 class="panel-title">Score</h3>
+            </div>
+            <div class="panel-body">
+                <h1 class="score">Answer something</h1>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px;"></div>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=none"></script>
+    <script>
+        (function (window, undefined) {
+            "use strict";
+
+            $(function () {
+                $(document).on("keydown", function (event) {
+                    // ctrl+alt+c
+                    if (event.which !== 67 || !event.ctrlKey || !event.altKey) {
+                        return;
+                    }
+                    $(".correct").toggleClass("correct-show");
+                }).on("click", "input[type='radio'], input[type='check']", function () {
+                    var possible = _.size($("input.correct")),
+                        attempted = _.size($("input:checked")),
+                        correct = _.size($("input.correct:checked"));
+
+                    if (attempted === possible) {
+                        $(".score").html(correct + "/" + possible + " &ndash; " + (correct / possible * 100).toFixed(2) + "%<br /><small>Final</small>");
+
+                    } else {
+                        $(".score").html("Attempted: " + correct + "/" + attempted + " &ndash; " + (correct / attempted * 100).toFixed(2) + "%<br /><small>Total: " + correct + "/" + possible + " &ndash; " + (correct / possible * 100).toFixed(2) + "%</small>");
+                    }
+                });
+
+                // give multiple choice unique names
+                $(".answers").each(function (i, e) {
+                    $(e).find("input[type='radio'], input[type='check']").each(function (idx, el) {
+                        $(el).attr("name", "q" + i);
+                    });
+                });
+            });
+        })(window);
+    </script>
+</body>
+</html>

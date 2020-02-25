@@ -1,0 +1,10 @@
+[
+  {
+    "outputFileName": "scripts/scripts.js",
+    "inputFiles": [
+      "scripts/CookieStorage.js",
+      "scripts/LocalStorage.js",
+      "scripts/main.js"
+    ]
+  }
+]

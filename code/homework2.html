@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 2.0</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <style>
+        .correct-show {
+            font-weight: bold;
+            color: mediumseagreen;
+        }
+
+        .correct-show:before {
+            content: "\2713";
+        }
+
+        .error {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">
+            <a href="index.html" class="btn btn-default pull-right">&laquo; Back</a>
+            Homework <small>2.0</small>
+        </h1>
+        <ol>
+            <li>
+                <p>
+                    How many times will the following loop print <samp>I'm looping!</samp>?
+                </p>
+                <pre class="prettyprint lang-cs">
+for (var x = 1000; x &gt; 0; x--)
+{
+    Console.WriteLine("I'm looping!");
+}</pre>
+                <ol type="A">
+                    <li>57</li>
+                    <li>999</li>
+                    <li>0</li>
+                    <li class="correct">1000</li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    How many times will the following loop print <samp>Tacos??</samp>?
+                </p>
+                <pre class="prettyprint lang-cs">
+for (var x = 0; x &lt;= 100; x = x + 10)
+{
+    Console.WriteLine("Tacos??");
+}</pre>
+                <ol type="A">
+                    <li class="correct">10</li>
+                    <li>100</li>
+                    <li>1</li>
+                    <li>0</li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    How many times will the following code output <samp>Foo</samp>?
+                </p>
+                <pre class="prettyprint lang-cs">
+var x = 5;
+while (x &lt; 5)
+{
+    Console.Log("Foo");
+    x++;
+}</pre>
+                <ol type="A">
+                    <li class="correct">0</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>4</li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    How many times will the following code output <samp>Toast</samp>?
+                </p>
+                <pre class="prettyprint lang-cs">
+var x = 20;
+do 
+{
+    Console.Log("Toast");
+    x++;
+} while (x &lt; 20);</pre>
+                <ol type="A">
+                    <li>20</li>
+                    <li>0</li>
+                    <li class="correct">1</li>
+                    <li>19</li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What will the following program output?
+                </p>
+                <pre class="prettyprint lang-cs">
+var data = new string[100];
+data[3] = "Foo";
+data[5] = "Bar";
+data[2] = "Baz";
+data[0] = "Flim";
+data[1] = "Flam";
+for (var x = 0; x &lt; 6; x++)
+{
+    if (data[x] == null)
+    {
+        Console.WriteLine("Empty!");
+    } 
+    else 
+    {
+        Console.WriteLine(data[x]);
+    }
+}</pre>
+                <ol type="A">
+                    <li style="margin-bottom: 1em;">
+                        <samp>
+                            Foo<br />
+                            Bar<br />
+                            Baz<br />
+                            Flim<br />
+                            Flam
+                        </samp>
+                    </li>
+                    <li class="correct" style="margin-bottom: 1em;">
+                        <samp>
+                            Flim<br />
+                            Flam<br />
+                            Baz<br />
+                            Foo<br />
+                            Empty!<br />
+                            Bar<br />
+                        </samp>
+                    </li>
+                    <li style="margin-bottom: 1em;">
+                        <samp>
+                            Foo<br />
+                            Empty!<br />
+                            Bar<br />
+                            Baz<br />
+                            Flim<br />
+                            Flam
+                        </samp>
+                    </li>
+                    <li style="margin-bottom: 1em;">
+                        <samp>
+                            Flim<br />
+                            Flam<br />
+                            Baz<br />
+                            Foo<br />
+                            Empty!<br />
+                            Bar<br />
+                            Empty!
+                        </samp>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    The following program prints <samp>Hello, world!</samp> only once. What error is causing the loop to fail?
+                </p>
+                <pre class="prettyprint lang-cs">
+for (var i = 0 + 1; i &lt;= 100; i = i + 1);
+{
+    Console.WriteLine("Hello, world!");
+}</pre>
+                <ol type="A">
+                    <li class="correct"><code class="prettyprint lang-cs">for (var i = 0 + 1; i &lt;= 100; i = i + 1)<span class="nocode error">;</span></code></li>
+                    <li><code class="prettyprint lang-cs">var i = 0 <span class="nocode error">+ 1</span></code></li>
+                    <li><code class="prettyprint lang-cs"><span class="nocode error">i =</span> i + 1</code></li>
+                    <li>Nothing</li>
+                </ol>
+            </li>
+
+            <li>
+                <p>
+                    Modify the following code:
+                    <ol type="a">
+                        <li>Add 3 more items to the corpse</li>
+                        <li>Stop the player from picking up items after they've picked up 3 things. <em class="text-info">Hint: You will need to use <code class="prettify lang-cs">break</code></em>.</li>
+                        <li>Print the number of items the player chose to loot after the inventory is displayed at the end. <em class="text-info">E.g. There are 4 items in your inventory.</em></li>
+                        <li>Do not print items in the corpse that are already in the inventory.</li>
+                    </ol>
+                </p>
+                <pre class="prettyprint lang-cs linenums">
+var items = new string[5];
+items[0] = "Pickaxe";
+items[1] = "Shoddy Leather Helmet";
+items[2] = "Rusty Dagger";
+items[3] = "Canteen";
+items[4] = "Murloc Eyeball";
+var inventory = new string[10];
+char key;
+Console.WriteLine("You are looting corpse of the deceased adventurer, you find:");
+do
+{
+    for (var x = 1; x &lt;= 5; x++)
+    {
+        var inInventory = false;
+        if (inventory[x] != null)
+        {
+            Console.WriteLine(x + ". " + items[x] + " (in your inventory)");
+        }
+        else
+        {
+            Console.WriteLine(x + ". " + items[x]);
+        }
+    }
+    Console.WriteLine("q. Nothing");
+    
+    Console.WriteLine();
+    Console.WriteLine("Which item do you take?");
+    key = Console.ReadKey().KeyChar;
+    
+    Console.WriteLine();
+    Console.WriteLine();
+
+    // Figure out what we picked up
+    for (var x = 0; x &lt; 5; x++)
+    {
+        // we have to convert "key" and "x" to like-types so we can compare them, since you can't compare int and char
+        // so we use "ToString"
+        if (key.ToString() == x.ToString()) 
+        {
+            // Chose this item
+            if (inventory[x] != null)
+            {
+                Console.WriteLine("You already have the " + items[x]);
+            }
+            else
+            {
+                inventory[x] = items[x];
+                Console.WriteLine("You take the " + items[x]);
+            }
+            Console.WriteLine();
+            Thread.Sleep(1000);
+        }
+    }
+} while (key != 'q');
+Console.WriteLine();
+Console.WriteLine("Done looting the corpse, here's your current inventory:");
+var n = 1;
+for (var i = 0; i &lt; 10; i++) 
+{
+    if (inventory[i] != null)
+    {
+        Console.WriteLine(n + ". " + inventory[i]);
+        n++;
+    }
+}
+Console.ReadLine();</pre>
+            </li>
+        </ol>
+    </div>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+        (function (window, undefined) {
+            "use strict";
+
+            $(function () {
+                $(document).on("keydown", function(event) {
+                    // ctrl+alt+c
+                    if (event.which !== 67 || !event.ctrlKey || !event.altKey) {
+                        return;
+                    }
+                    $(".correct").toggleClass("correct-show");
+                });
+            });
+        })(window);
+    </script>
+</body>
+</html>

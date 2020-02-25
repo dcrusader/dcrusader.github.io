@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 2.1</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <style>
+        @-webkit-keyframes blink {
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes blink {
+          to {
+            opacity: 1;
+          }
+        }
+    
+        .correct-show {
+            font-weight: bold;
+            color: mediumseagreen;
+        }
+
+        .correct-show:before {
+            content: "\2713";
+        }
+
+        .console {
+            padding-left: 2em;
+            white-space: pre-line;
+            color: lightgray;            
+            background-color: black;
+        }
+        
+        .console > .input {
+            position: relative;
+        }
+        
+        .console > .input:after {
+            content: " ";
+            background-color: white;
+            width: 8px;
+            margin-bottom: -2px;
+            height: 4px;
+            overflow: hidden;
+            display: inline-block;
+            opacity: 0;
+        }
+        
+        .console:hover > .input:after {
+            -webkit-animation: blink 500ms ease alternate infinite;
+            animation: blink 500ms ease alternate infinite;
+        }
+        
+        .console > .input:before {
+            font-weight: bold;
+            content: ">";
+            position: absolute;
+            left: -12px;
+            color: gold;
+        }
+
+        .error {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">
+            <a href="index.html" class="btn btn-default pull-right">&laquo; Back</a>
+            Homework <small>2.1</small>
+        </h1>
+        <ol>
+            <li>
+                <p>
+                    Write a program that uses a loop to produce the following output:
+                </p>
+                <pre class="console">
+                3
+                6
+                9
+                12
+                15
+                </pre>
+            </li>
+            <li>
+                <p>
+                    Write a program that uses a loop to produce the following output:
+                </p>
+                <pre class="console">
+                Stop hitting yourself
+                <span class="input">n</span>
+                Stop hitting yourself
+                <span class="input">n</span>
+                Stop hitting yourself
+                <span class="input">y</span>
+                </pre>
+            </li>
+            <li>
+                <p>
+                    Which is the best type of loop to use to produce the following output?
+                </p>
+                <pre class="console">
+                1. Monica
+                2. Erica
+                3. Rita
+                4. Tina
+                5. Sandra
+                </pre>
+                <ol type="A">
+                    <li><code class="prettyprint lang-cs">while</code></li>
+                    <li><code class="prettyprint lang-cs">do</code></li>
+                    <li class="correct"><code class="prettyprint lang-cs">for</code></li>
+                    <li><code class="prettyprint lang-cs">foreach</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    Which is the best type of loop to produce the following output?
+                </p>
+                <pre class="console">
+                What is your phone number?
+                <span class="input">123</span>
+                
+                You must enter a valid phone number!
+                
+                What is your phone number?
+                <span class="input">you're not the boss of me!</span>
+
+                You must enter a valid phone number!
+                
+                What is your phone number?
+                <span class="input">(909) 867-5309</span>
+                
+                Great! Was that so hard?
+                </pre>
+                <ol type="A">
+                    <li><code class="prettyprint lang-cs">while</code></li>
+                    <li class="correct"><code class="prettyprint lang-cs">do</code></li>
+                    <li><code class="prettyprint lang-cs">for</code></li>
+                    <li><code class="prettyprint lang-cs">foreach</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    Given the following code, what would be the best type of loop to use?
+                </p>
+<pre class="prettyprint lang-cs">
+Console.WriteLine("Please enter your age:")
+var ageString = Console.ReadLine();
+int age;
+var parseSuccess = int.TryParse(ageString, out age); // convert the string to an integer
+
+// Continued in the answer choices
+</pre>
+                <ol type="A">
+                    <li>The <code class="prettyprint lang-cs">for</code> loop&hellip;
+                    <pre class="prettyprint lang-cs">for (var x = 0; x &lt; 10; x++)
+{
+    Console.WriteLine("The age you chose is invalid, please enter your age:");
+    ageString = Console.ReadLine();
+    parseSuccess = int.TryParse(ageString, out age);
+}</pre></li>
+                    <li>The <code class="prettyprint lang-cs">foreach</code> loop&hellip;
+                    <pre class="prettyprint lang-cs">foreach (var chr in ageString)
+{
+    Console.WriteLine("The age you chose is invalid, please enter your age:");
+    ageString = Console.ReadLine();
+    parseSuccess = int.TryParse(ageString, out age);
+}</pre></li>
+                    <li>The <code class="prettyprint lang-cs">do</code> loop&hellip;
+                    <pre class="prettyprint lang-cs">do
+{
+    Console.WriteLine("The age you chose is invalid, please enter your age:");
+    ageString = Console.ReadLine();
+    parseSuccess = int.TryParse(ageString, out age);
+} while (parseSuccess == false);</pre></li>
+                    <li class="correct">The <code class="prettyprint lang-cs">while</code> loop&hellip;
+                    <pre class="prettyprint lang-cs">while (parseSuccess == false)
+{
+    Console.WriteLine("The age you chose is invalid, please enter your age:");
+    ageString = Console.ReadLine();
+    parseSuccess = int.TryParse(ageString, out age);
+}</pre></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What will the following program's output be?
+                </p>
+                <pre class="prettyprint lang-cs">
+var hp = 100;
+while (hp &gt; 0)
+{
+    if (hp == 20)
+    {
+        Console.WriteLine("Health is extremely low!");
+    }
+    else if (hp == 40)
+    {
+        Console.WriteLine("Health is very low!");
+    }
+    else if (hp == 60)
+    {
+        Console.WriteLine("Health is getting low!");
+    }
+    else if (hp == 80)
+    {
+        Console.WriteLine("Health is ... okay!");
+    }
+    hp = hp - 20;
+}
+
+Console.WriteLine("You died!");</pre>
+                <ol type="A">
+                    <li>Nothing</li>
+                    <li><br />
+                        <pre class="console">
+                        Health is extremely low!
+                        Health is very low!
+                        Health is getting low!
+                        Health is ... okay!
+                        You died!
+                        </pre>
+                    </li>
+                    <li class="correct"><br />
+                        <pre class="console">
+                        Health is ... okay!
+                        Health is getting low!
+                        Health is very low!
+                        Health is extremely low!
+                        You died!
+                        </pre>
+                    </li>
+                    <li><br />
+                        <pre class="console">
+                        You died!
+                        </pre>
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <p>
+                    What will the following program's output be?
+                </p>
+                <pre class="prettyprint lang-cs">
+var total = 0;
+// Try to tally total as you step through the program in your head
+for (var x = 0; x &lt; 5; x++)
+{
+    do
+    {
+        total = total + 1;
+    } while (total &lt; 50);
+}
+Console.WriteLine(total);
+</pre>
+            <ol type="A">
+                <li class="correct"><samp>54</samp></li>
+                <li><samp>5</samp></li>
+                <li><samp>0</samp></li>
+                <li><samp>50</samp></li>
+            </ol>
+            </li>
+            <li>
+                <p>Bonus: What will the following program output?</p>
+                <pre class="prettyprint lang-cs">
+var loopCount = 0;
+while (true)
+{
+    if (loopCount == 0)
+    {
+        Console.WriteLine("Foo");
+    }
+    else if (loopCount == 1)
+    {
+        Console.WriteLine("Bar");
+    }
+    else
+    {
+        break;
+    }
+    loopCount++;
+}
+</pre>
+                <ol type="A">
+                    <li><br />
+	                    <pre class="console">
+	                    Foo                    
+	                    Bar
+	                    Foo
+	                    Bar
+	                    </pre>
+                    </li>
+                    <li><br />
+	                    <pre class="console">
+	                    Foo                    
+	                    Foo
+	                    Bar
+	                    Bar
+	                    </pre>
+                    </li>
+                    <li class="correct"><br />
+	                    <pre class="console">
+	                    Foo                    
+	                    Bar
+	                    </pre>
+                    </li>
+                    <li>Nothing</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+        (function (window, undefined) {
+            "use strict";
+
+            $(function () {
+                $(document).on("keydown", function(event) {
+                    // ctrl+alt+c
+                    if (event.which !== 67 || !event.ctrlKey || !event.altKey) {
+                        return;
+                    }
+                    $(".correct").toggleClass("correct-show");
+                });
+            });
+        })(window);
+    </script>
+</body>
+</html>

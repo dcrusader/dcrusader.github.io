@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 2.2</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <style>
+        .correct-show {
+            font-weight: bold;
+            color: mediumseagreen;
+        }
+
+            .correct-show:before {
+                content: "\2713";
+            }
+
+        .error {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">
+            <a href="index.html" class="btn btn-default pull-right">&laquo; Back</a>
+            Homework <small>2.2</small>
+        </h1>
+
+        <h2>Types</h2>
+        <ol>
+            <li>
+                <p>
+                    What is the <code>type</code> of the following variable?
+                </p>
+                <pre class="prettyprint lang-cs">var foo = 1;</pre>
+                <ol type="A">
+                    <li><code class="prettyprint lang-cs">string</code></li>
+                    <li class="correct"><code class="prettyprint lang-cs">int</code></li>
+                    <li><code class="prettyprint lang-cs">DateTime</code></li>
+                    <li><code class="prettyprint lang-cs">bool</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What is the <code>type</code> of the following variable?
+                </p>
+                <pre class="prettyprint lang-cs">object foo = 1;</pre>
+                <ol type="A">
+                    <li><code class="prettyprint lang-cs">bool</code></li>
+                    <li><code class="prettyprint lang-cs">decimal</code></li>
+                    <li class="correct"><code class="prettyprint lang-cs">object</code></li>
+                    <li><code class="prettyprint lang-cs">float</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What is the <code>type</code> of the variable <var>result</var>?
+                </p>
+                <pre class="prettyprint lang-cs">int x = 2;
+int y = 6;
+var result = x + 1;
+</pre>
+                <ol type="A">
+                    <li class="correct"><code class="prettyprint lang-cs">int</code></li>
+                    <li><code class="prettyprint lang-cs">DateTime</code></li>
+                    <li><code class="prettyprint lang-cs">double</code></li>
+                    <li><code class="prettyprint lang-cs">byte</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What is the <code>type</code> of the variable <var>result</var>?
+                </p>
+                <pre class="prettyprint lang-cs">int x = 2;
+var result = x.ToString();
+</pre>
+                <ol type="A">
+                    <li><code class="prettyprint lang-cs">double</code></li>
+                    <li class="correct"><code class="prettyprint lang-cs">string</code></li>
+                    <li><code class="prettyprint lang-cs">object</code></li>
+                    <li><code class="prettyprint lang-cs">short</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What is the <code>type</code> of the variable <var>result</var>?
+                </p>
+                <pre class="prettyprint lang-cs">string foo = "12";
+var result = int.Parse(foo);
+</pre>
+                <ol type="A">
+                    <li><code class="prettyprint lang-cs">float</code></li>
+                    <li><code class="prettyprint lang-cs">decimal</code></li>
+                    <li><code class="prettyprint lang-cs">string</code></li>
+                    <li class="correct"><code class="prettyprint lang-cs">int</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    The following code will work without errors.
+                </p>
+                <pre class="prettyprint lang-cs">string foo = 12;
+Console.WriteLine(foo);
+</pre>
+                <ol type="A">
+                    <li>True</li>
+                    <li class="correct">False</li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    The following code will work without errors.
+                </p>
+                <pre class="prettyprint lang-cs">var foo = 12;
+Console.WriteLine(foo);
+</pre>
+                <ol type="A">
+                    <li class="correct">True</li>
+                    <li>False</li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    The following code will work without errors.
+                </p>
+                <pre class="prettyprint lang-cs">var x = 2;
+string y = "3";
+Console.WriteLine(x + y);
+</pre>
+                <ol type="A">
+                    <li>True</li>
+                    <li class="correct">False</li>
+                </ol>
+            </li>
+        </ol>
+
+        <h2>Variables</h2>
+        <ol>
+            <li>
+                <p>
+                    What ultimately is the value of <var>x</var>?
+                </p>
+                <pre class="prettyprint lang-cs">var x = 0;
+x++;
+x = x + x;
+x = x * 2;
+x + 5;
+</pre>
+                <ol type="A">
+                    <li class="correct"><samp>4</samp></li>
+                    <li><samp>5</samp></li>
+                    <li><samp>9</samp></li>
+                    <li><samp>0</samp></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What ultimately is the value of <var>x</var>?
+                </p>
+                <pre class="prettyprint lang-cs">var x = 100;
+var y = 20;
+x = x - y;
+x = y - x;
+x = x - x;
+</pre>
+                <ol type="A">
+                    <li><samp>4</samp></li>
+                    <li><samp>5</samp></li>
+                    <li><samp>9</samp></li>
+                    <li class="correct"><samp>0</samp></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What ultimately is the value of <var>x</var>?
+                </p>
+                <pre class="prettyprint lang-cs">var x = "foo";
+var y = "bar";
+x = x + y;
+x = x + x;
+</pre>
+                <ol type="A">
+                    <li><samp>foo</samp></li>
+                    <li><samp>foofoobarbar</samp></li>
+                    <li><samp>bar</samp></li>
+                    <li class="correct"><samp>foobarfoobar</samp></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What ultimately is the value of <var>x</var>?
+                </p>
+                <pre class="prettyprint lang-cs">var x = "foo";
+var y = "bar";
+y = y + y;
+y = y + "baz";
+x = y;
+</pre>
+                <ol type="A">
+                    <li class="correct"><samp>barbarbaz</samp></li>
+                    <li><samp>foo</samp></li>
+                    <li><samp>barbar</samp></li>
+                    <li><samp>baz</samp></li>
+                </ol>
+            </li>
+        </ol>
+
+        <h2>Methods</h2>
+        <p>Given this method for the following questions:</p>
+        <pre class="prettyprint lang-cs">
+public static class Homework
+{
+    public static string Pluralize(string text, int quantity)
+    {
+        if (quantity == 1)
+        {
+            return text;
+        }
+        
+        if (text.EndsWith("s"))
+        {
+            return text + "es";
+        }
+        return text + "s";
+    }
+}
+</pre>
+        <ol>
+            <li>
+                <p>
+                    What ultimately is the value of <var>x</var>?
+                </p>
+                <pre class="prettyprint lang-cs">
+var x = Homework.Pluralize("Basket", 2);
+</pre>
+                <ol type="A">
+                    <li><samp>Basket</samp></li>
+                    <li class="correct"><samp>Baskets</samp></li>
+                    <li><samp>Basketes</samp></li>
+                    <li><em>Nothing</em></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What ultimately is the value of <var>x</var>?
+                </p>
+                <pre class="prettyprint lang-cs">
+var y = 1;
+var str = "Bus"
+var x = Homework.Pluralize(str, y);
+</pre>
+                <ol type="A">
+                    <li><samp>Buss</samp></li>
+                    <li class="correct"><samp>Bus</samp></li>
+                    <li><samp>Buses</samp></li>
+                    <li><em>Nothing</em></li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    What ultimately is the value of <var>stuff</var>?
+                </p>
+                <pre class="prettyprint lang-cs">
+var str = "Soup";
+var stuff = "";
+for (var x = 0; x &lt;= 2; x++)
+{
+    // the "+=" operator is shorthand for "myVar = myVar + somethingElse"
+    stuff += x;
+    stuff += " ";
+    stuff += Homework.Pluralize(str, x);
+    stuff += " ";
+}
+</pre>
+                <ol type="A">
+                    <li class="correct"><samp>0 Soups 1 Soup 2 Soups</samp></li>
+                    <li><samp>0 Soups 1 Soup</samp></li>
+                    <li><samp>1 Soup 2 Soups 3 Soups</samp></li>
+                    <li><samp>0Soups 1Soup 2Soups</samp></li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+    <div style="height: 100px;"></div>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+        (function (window, undefined) {
+            "use strict";
+
+            $(function () {
+                $(document).on("keydown", function (event) {
+                    // ctrl+alt+c
+                    if (event.which !== 67 || !event.ctrlKey || !event.altKey) {
+                        return;
+                    }
+                    $(".correct").toggleClass("correct-show");
+                });
+            });
+        })(window);
+    </script>
+</body>
+</html>

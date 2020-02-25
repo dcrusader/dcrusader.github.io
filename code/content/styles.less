@@ -1,0 +1,135 @@
+﻿@import (inline) "prettify-light.css";
+
+.prettyprint {
+    /*font-size: 1em !important;
+    padding: 0.5em !important;*/
+    border-radius: 0;
+    opacity: 0;
+    -moz-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    -webkit-transition: opacity 1s ease;
+    transition: opacity 1s ease;
+
+    &.prettyprinted {
+        opacity: 1;
+    }
+}
+
+.correct-show {
+    background-color: mediumseagreen;
+
+    label {
+        color: white;
+    }
+}
+
+.error {
+    color: red;
+    text-decoration: underline;
+}
+
+#score {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+@-webkit-keyframes blink {
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.console {
+    padding-left: 2em;
+    white-space: pre-line;
+    //color: lightgray;
+    @green: #0cd334;
+    @fontColor: white;
+    color: @fontColor;
+    text-shadow: -1px -1px 4px fadeout(@green, 15%),
+                  1px  1px 4px fadeout(red, 15%);
+    background-color: black;
+    border-radius: 0;
+    border: 3px double #333;
+
+    > .input {
+        position: relative;
+
+        &:before {
+            font-weight: bold;
+            content: ">";
+            position: absolute;
+            left: -12px;
+            color: gold;
+        }
+
+        &:after {
+            content: " ";
+            background-color: white;
+            width: 8px;
+            margin-bottom: -2px;
+            height: 4px;
+            overflow: hidden;
+            display: inline-block;
+            opacity: 0;
+        }
+    }
+
+    > .typewriter {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        -moz-animation: typewriter 4s ease-out infinite;
+        -o-animation: typewriter 4s ease-out infinite;
+        -webkit-animation: typewriter 4s ease-out infinite;
+        animation: typewriter 4s ease-out infinite;
+
+
+        .loop(@counter) when (@counter > 0) {
+            .loop((@counter - 1)); // next iteration
+            @delay: abs(ceil(cos(unit(@counter, deg) * 100) * 800)) * -1ms;
+            &:nth-of-type(@{counter}) {                
+                -moz-animation-delay: @delay;
+                -o-animation-delay: @delay;
+                -webkit-animation-delay: @delay;
+                animation-delay: @delay;
+            }
+        }
+
+        .loop(10);
+    }
+
+    &:hover {
+        > .input {
+            &:after {
+                -webkit-animation: blink 500ms ease alternate infinite;
+                -moz-animation: blink 500ms ease alternate infinite;
+                -o-animation: blink 500ms ease alternate infinite;
+                animation: blink 500ms ease alternate infinite;
+            }
+        }
+    }
+}
