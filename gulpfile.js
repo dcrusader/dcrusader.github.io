@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const terser = require('gulp-terser');
-//const clean = require('gulp-clean');
+const clean = require('gulp-clean');
 const babel = require('gulp-babel');
 const prefixCss = require('gulp-autoprefixer');
 const cleanCss = require('gulp-clean-css');
@@ -18,7 +18,7 @@ gulp.task('css', function () {
         .pipe(less())
         .pipe(prefixCss())
         .pipe(cleanCss())
-        .concat("styles.min.css")
+        .pipe(concat("styles.min.css"))
         .pipe(gulp.dest('./code/content'));
 });
 
@@ -40,4 +40,4 @@ gulp.task('watch', function () {
     gulp.watch(['./src/**/*'], gulp.parallel('js', 'css'));
 });
 
-gulp.task('default', gulp.series('clean', gulp.parallel('css', 'js', 'src'), 'watch'));
+gulp.task('default', gulp.series('clean', gulp.parallel('css', 'js'), 'watch'));
