@@ -95,8 +95,8 @@
                 document.title = $(parsed).filter("h1").first().text() || "Assignment";
 
                 // Fix code blocks
-                ["lang-cs", "lang-js"].forEach(lang => {
-                $body.find(`.${lang}`).each(function (i, e) {
+                _.chain(["lang", "language"]).map(term => _.map(["cs", "js"], lang => [term, lang].join("-"))).each(lang => {
+                    $body.find(`.${lang}`).each(function (i, e) {
                         const $e = $(e),
                             $pre = $e.closest("pre"),
                             html = $e.html();
