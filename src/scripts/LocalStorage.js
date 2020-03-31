@@ -20,7 +20,7 @@
         var storage = preparedStore(),
             pared = 0;
 
-        pared = _.chain(storage)
+        _.chain(storage)
             .filter(function (item) {
                 return !moment().isBefore(item.Expires);
             })

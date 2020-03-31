@@ -1,10 +1,13 @@
 ﻿(function (window, undefined) {
     "use strict";
 
+    /** @type {App} */
     var app = window.App || {};
 
+    // @ts-ignore
     app.CurrentAssignment = null;
 
+    // @ts-ignore
     app.Store = {};
 
     $(function () {
@@ -57,12 +60,15 @@
     };
 
     app.GetQueryParams = _.once(function () {
-        var pattern = /(?:[\?&])(.+)=(.+)/g,
-            match,
-            result = {};
+        const pattern = /(?:[\?&])(.+)=(.+)/g;
+        /** @type {RegExpExecArray | null} */
+        let match;
+        /** @type {{ [index: string]: string }} */
+        const result = {};
 
         // to object
         while (match = pattern.exec(document.location.search)) {
+            if (!match) break;
             result[match[1]] = match[2];
         }
 
