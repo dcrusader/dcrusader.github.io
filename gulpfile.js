@@ -14,25 +14,39 @@ gulp.task('clean', function () {
 
 gulp.task('css', function () {
     return gulp
-        .src(['./code/content/styles.less'])
+        .src(['./src/css/styles.less'])
         .pipe(less())
         .pipe(prefixCss())
         .pipe(cleanCss())
         .pipe(concat("styles.min.css"))
+        .pipe(gulp.dest('./gwc/content'))
         .pipe(gulp.dest('./code/content'));
+});
+
+gulp.task('vendor-js', function () {
+    return gulp.src([
+        'node_modules/jquery/dist/jquery.js',
+        'node_modules/bluebird/js/browser/bluebird.js',
+        'node_modules/knockout/build/output/knockout-latest.js',
+        'node_modules/underscore/underscore.js',
+        'node_modules/moment/moment.js',
+        'node_modules/marked/marked.min.js'
+    ]).pipe(concat('vendor.min.js'))
+    .pipe(terser())
+    .pipe(gulp.dest('./gwc/scripts'));
 });
 
 gulp.task('js', function () {
     const sources = [
-        'code/scripts/**/*.js',
-        '!code/scripts/**/*.min.js'
+        'src/scripts/**/*.js'
     ];
     return gulp.src(sources)
-        .pipe(concat('scripts.min.js'))
         .pipe(babel({
             presets: ['@babel/env']
         }))
+        .pipe(concat('scripts.min.js'))
         .pipe(terser())
+        .pipe(gulp.dest('./gwc/scripts'))
         .pipe(gulp.dest('./code/scripts'));
 });
 
@@ -40,4 +54,4 @@ gulp.task('watch', function () {
     gulp.watch(['./src/**/*'], gulp.parallel('js', 'css'));
 });
 
-gulp.task('default', gulp.series('clean', gulp.parallel('css', 'js'), 'watch'));
+gulp.task('default', gulp.series('clean', gulp.parallel('css', 'js', 'vendor-js'), 'watch'));

@@ -27,5 +27,13 @@
     "gulp-concat": "^2.6.1",
     "gulp-less": "^4.0.1",
     "gulp-terser": "^1.2.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "jquery": "^2.2.4",
+    "knockout": "^3.5.1",
+    "marked": "^0.8.2",
+    "moment": "^2.24.0",
+    "underscore": "^1.10.2"
   }
 }
