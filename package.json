@@ -32,7 +32,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "bootstrap": "^3.4.1",
-    "jquery": "^2.2.4",
+    "jquery": "^3.4.0",
     "knockout": "^3.5.1",
     "marked": "^0.8.2",
     "moment": "^2.24.0",
