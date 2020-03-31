@@ -95,19 +95,21 @@
                 document.title = $(parsed).filter("h1").first().text() || "Assignment";
 
                 // Fix code blocks
-                $body.find(".lang-cs").each(function (i, e) {
-                    var $e = $(e),
-                        $pre = $e.closest("pre"),
-                        html = $e.html();
+                ["lang-cs", "lang-js"].forEach(lang => {
+                $body.find(`.${lang}`).each(function (i, e) {
+                        const $e = $(e),
+                            $pre = $e.closest("pre"),
+                            html = $e.html();
 
-                    $pre.html(html).addClass("prettyprint lang-cs");
+                        $pre.html(html).addClass(`prettyprint ${lang}`);
 
-                    var count = _.size(html.trim().split("\n"));
-                    if (count > 5) {
-                        $pre.addClass("linenums");
-                    }
+                        const count = _.size(html.trim().split("\n"));
+                        if (count > 5) {
+                            $pre.addClass("linenums");
+                        }
 
-                    $e.remove();
+                        $e.remove();
+                    });
                 });
 
                 // Fix console blocks
