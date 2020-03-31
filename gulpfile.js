@@ -26,6 +26,7 @@ gulp.task('css', function () {
 gulp.task('vendor-js', function () {
     return gulp.src([
         'node_modules/jquery/dist/jquery.js',
+        'node_modules/bootstrap/dist/js/bootstrap.js',
         'node_modules/bluebird/js/browser/bluebird.js',
         'node_modules/knockout/build/output/knockout-latest.js',
         'node_modules/underscore/underscore.js',
